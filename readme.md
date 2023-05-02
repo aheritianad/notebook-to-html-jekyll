@@ -2,6 +2,35 @@
 
 Convert a `.ipnb` to `.html` for `Jekyll`.
 
+You can find this package at [here][github-repo].
+
+## How to use
+
+### Preparation
+
+1. Add this repository into your main directory.
+2. Exclude it in `_config.yml` like the following.
+
+   ```sh
+    exclude:
+        - notebook-to-html-jekyll
+   ```
+
+3. Ignore it if you use git by running `echo "\nnotebook-to-html-jekyll\n" >> .gitignore`.
+
+4. Run from your main directory  
+   `python3 notebook-to-html-jekyll --prepare`.
+
+Now, you are ready to convert a `.ipynb` to a `.html` file for `Jekyll`.
+
+### Convert files
+
+Convert a `.ipynb` file to `.html` by
+running  
+`python3 notebook-to-html-jekyll --convert path/to/your/file.ipynb`  
+
+Get the `.html` file in the same path as your `.ipynb` file.
+
 ## Contents
 
 - `_includes`
@@ -37,6 +66,7 @@ Convert a `.ipnb` to `.html` for `Jekyll`.
   - [ ] Edit `path/input/file.html`
     - [ ] delete everything except `<body ... </body>`
     - [ ] replace `body` tag with `div` tag.
+    - [ ] put `{{`,`}}`, `{%` and `%}`  in `{% raw %} ... {% endraw %}` block.
     - [ ] add  
 
         ```sh
@@ -46,3 +76,7 @@ Convert a `.ipnb` to `.html` for `Jekyll`.
         ```
 
         at the top.
+
+## Author
+
+[github-repo]: https://github.com:aheritianad/notebook-to-html-jekyll.git  
