@@ -31,6 +31,16 @@ running
 
 Get the `.html` file in the same path as your `.ipynb` file.
 
+Include your notebook in your jekyll site using the following
+
+```sh
+---
+
+{% include_relative notebook-file-name.html %}
+
+---
+```
+
 ## Contents
 
 - `_includes`
@@ -48,15 +58,14 @@ Get the `.html` file in the same path as your `.ipynb` file.
   `cp notebook-to-jekyll/_includes/* _includes/`
 
 - [ ] add layout to `_layout/`
-  - [ ] make `post-with-notebook.html`
-    - [ ] run `cp _layout/default.html _layout/post-with-notebook.html`
-    - [ ] edit `<head ... </head>` of `_layout/post-with-notebook.html`
-      - [ ] add `{% include matjax-setup.html %}`
-      - [ ] add `{% include noteboo-css.html %}`
-    - [ ] [Optional] Make it like post content
-      - [ ] edit `<body ... </body>` of `_layout/post-with-notebook.html`
-        - [ ] retrieve `content_setup = _layout/post.html`
-        - [ ] replace `{{ content }}` in `_layout/post-with-notebook.html` with `content_setup`
+  - [ ] for `layout.html` in `_layout/` directory
+    - [ ] run `cp _layout/{{layout}}.html _layout/{{layout}}-notebook.html`
+    - [ ] if `_layout/{{layout}}-notebook.html` contains `layout: {layout-name}`
+      - [ ] append `-notebook` to `layout: {layout-name}` (i.e. `layout: {layout-name}-notebook`)
+    - [ ] else
+      - [ ] edit `<head ... </head>` of `_layout/{{layout}}-notebook.html`
+        - [ ] add `{% include matjax-setup.html %}`
+        - [ ] add `{% include noteboo-css.html %}`
 
 ### `convert`
 
@@ -67,15 +76,6 @@ Get the `.html` file in the same path as your `.ipynb` file.
     - [ ] delete everything except `<body ... </body>`
     - [ ] replace `body` tag with `div` tag.
     - [ ] put `{{`,`}}`, `{%` and `%}`  in `{% raw %} ... {% endraw %}` block.
-    - [ ] add  
-
-        ```sh
-        ---
-        layout: post-with-notebook
-        ---
-        ```
-
-        at the top.
 
 ## Author
 
